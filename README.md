@@ -1,3 +1,7 @@
+<!-- Modified by Helix (2026-10-27): user-facing brand renamed; see HELIX-NOTICE.md -->
+
+> **Cardr OCR Vision** is a Helix-maintained derivative of the open-source docTR project, used under its original licence (see LICENSE / NOTICE and HELIX-NOTICE.md). Package, module and CLI identifiers are unchanged in this pass so existing code keeps working.
+
 <p align="center">
   <img src="https://github.com/mindee/doctr/raw/main/docs/images/Logo_doctr.gif" width="40%">
 </p>
@@ -9,7 +13,7 @@
 
 ## Project responsibility
 
-**docTR** was originally created by [Mindee](https://mindee.com). It is now actively developed and maintained by [t2k GmbH](https://www.text2knowledge.de/de).
+**Cardr OCR Vision** was originally created by [Mindee](https://mindee.com). It is now actively developed and maintained by [t2k GmbH](https://www.text2knowledge.de/de).
 
 [![Need help solving a complex use case?](https://github.com/mindee/doctr/raw/main/docs/images/doctr-need-help.png)](https://www.text2knowledge.de/de)
 
@@ -24,7 +28,7 @@ What you can expect from this repository:
 
 ### Getting your pretrained model
 
-End-to-End OCR is achieved in docTR using a two-stage approach: text detection (localizing words), then text recognition (identify all characters in the word).
+End-to-End OCR is achieved in Cardr OCR Vision using a two-stage approach: text detection (localizing words), then text recognition (identify all characters in the word).
 As such, you can select the architecture used for [text detection](https://mindee.github.io/doctr/latest/models/detection.html), and the one for [text recognition](https://mindee.github.io/doctr/latest/models/recognition.html) from the list of available implementations.
 
 ```python
@@ -84,7 +88,7 @@ for region in result.pages[0].layout:
 
 ### Dealing with rotated documents
 
-Should you use docTR on documents that include rotated pages, or pages with multiple box orientations,
+Should you use Cardr OCR Vision on documents that include rotated pages, or pages with multiple box orientations,
 you have multiple options to handle it:
 
 - If you only use straight document pages with straight words (horizontal, same reading direction),
@@ -157,7 +161,7 @@ The KIE predictor results per page are in a dictionary format with each key repr
 
 ### Prerequisites
 
-Python 3.11 (or higher) and [pip](https://pip.pypa.io/en/stable/) are required to install docTR.
+Python 3.11 (or higher) and [pip](https://pip.pypa.io/en/stable/) are required to install Cardr OCR Vision.
 
 ### Latest release
 
@@ -233,7 +237,7 @@ A minimal demo app is provided for you to play with our end-to-end OCR models!
 
 #### Live demo
 
-Courtesy of :hugs: [Hugging Face](https://huggingface.co/) :hugs:, docTR has now a fully deployed version available on [Spaces](https://huggingface.co/spaces)!
+Courtesy of :hugs: [Hugging Face](https://huggingface.co/) :hugs:, Cardr OCR Vision has now a fully deployed version available on [Spaces](https://huggingface.co/spaces)!
 Check it out [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/mindee/doctr)
 
 #### Running it locally
@@ -254,14 +258,14 @@ streamlit run demo/app.py
 
 We offer Docker container support for easy testing and deployment. [Here are the available docker tags.](https://github.com/mindee/doctr/pkgs/container/doctr).
 
-#### Using GPU with docTR Docker Images
+#### Using GPU with Cardr OCR Vision Docker Images
 
-The docTR Docker images are GPU-ready and based on CUDA `12.2`. Make sure your host is **at least `12.2`**, otherwise Torch won't be able to initialize the GPU.
+The Cardr OCR Vision Docker images are GPU-ready and based on CUDA `12.2`. Make sure your host is **at least `12.2`**, otherwise Torch won't be able to initialize the GPU.
 Please ensure that Docker is configured to use your GPU.
 
 To verify and configure GPU support for Docker, please follow the instructions provided in the [NVIDIA Container Toolkit Installation Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
-Once Docker is configured to use GPUs, you can run docTR Docker containers with GPU support:
+Once Docker is configured to use GPUs, you can run Cardr OCR Vision Docker containers with GPU support:
 
 ```shell
 docker run -it --gpus all ghcr.io/mindee/doctr:torch-py3.9.18-2024-10 bash
@@ -269,7 +273,7 @@ docker run -it --gpus all ghcr.io/mindee/doctr:torch-py3.9.18-2024-10 bash
 
 #### Available Tags
 
-The Docker images for docTR follow a specific tag nomenclature: `<deps>-py<python_version>-<doctr_version|YYYY-MM>`. Here's a breakdown of the tag structure:
+The Docker images for Cardr OCR Vision follow a specific tag nomenclature: `<deps>-py<python_version>-<doctr_version|YYYY-MM>`. Here's a breakdown of the tag structure:
 
 - `<deps>`: `torch`, `torch-viz-html-contrib`.
 - `<python_version>`: `3.10.13`, `3.11.8`, etc.
@@ -285,13 +289,13 @@ Here are examples of different image tags:
 
 #### Building Docker Images Locally
 
-You can also build docTR Docker images locally on your computer.
+You can also build Cardr OCR Vision Docker images locally on your computer.
 
 ```shell
 docker build -t doctr .
 ```
 
-You can specify custom Python versions and docTR versions using build arguments. For example, to build a docTR image with PyTorch, Python version `3.9.10`, and docTR version `v0.7.0`, run the following command:
+You can specify custom Python versions and Cardr OCR Vision versions using build arguments. For example, to build a Cardr OCR Vision image with PyTorch, Python version `3.9.10`, and Cardr OCR Vision version `v0.7.0`, run the following command:
 
 ```shell
 docker build -t doctr --build-arg FRAMEWORK=torch --build-arg PYTHON_VERSION=3.9.10 --build-arg DOCTR_VERSION=v0.7.0 .
@@ -309,7 +313,7 @@ All script arguments can be checked using `python scripts/analyze.py --help`
 
 ### Minimal API integration
 
-Looking to integrate docTR into your API? Here is a template to get you started with a fully working API using the wonderful [FastAPI](https://github.com/tiangolo/fastapi) framework.
+Looking to integrate Cardr OCR Vision into your API? Here is a template to get you started with a fully working API using the wonderful [FastAPI](https://github.com/tiangolo/fastapi) framework.
 
 #### Deploy your API locally
 
@@ -352,7 +356,7 @@ print(requests.post("http://localhost:8080/ocr", params=params, files=files).jso
 
 ### Example notebooks
 
-Looking for more illustrations of docTR features? You might want to check the [Jupyter notebooks](https://github.com/mindee/doctr/tree/main/notebooks) designed to give you a broader overview.
+Looking for more illustrations of Cardr OCR Vision features? You might want to check the [Jupyter notebooks](https://github.com/mindee/doctr/tree/main/notebooks) designed to give you a broader overview.
 
 
 ## Citation
@@ -371,17 +375,17 @@ If you wish to cite this project, feel free to use this [BibTeX](http://www.bibt
 
 ## Custom Development and Support
 
-[t2k GmbH](https://www.text2knowledge.de/de) offers professional services around docTR : whether you are building a product or contributing to the open-source project.
+[t2k GmbH](https://www.text2knowledge.de/de) offers professional services around Cardr OCR Vision : whether you are building a product or contributing to the open-source project.
 
 ### For organizations
 
-Interested in docTR and want to develop, implement, or ship your own solution? t2k can help with:
+Interested in Cardr OCR Vision and want to develop, implement, or ship your own solution? t2k can help with:
 
-- **Custom OCR development** : individual detection, recognition, and pipeline work built on docTR
-- **Project implementation** : turning your ideas into production-ready docTR integrations
+- **Custom OCR development** : individual detection, recognition, and pipeline work built on Cardr OCR Vision
+- **Project implementation** : turning your ideas into production-ready Cardr OCR Vision integrations
 - **Technical consulting** : architecture, deployment, and integration guidance
 - **Ongoing development** : feature extensions and implementation support tailored to your use case
-- **Workshops & advisory** : verbal consulting, hands-on sessions, and recommendations for working with docTR
+- **Workshops & advisory** : verbal consulting, hands-on sessions, and recommendations for working with Cardr OCR Vision
 
 Contact [info@text2knowledge.de](mailto:info@text2knowledge.de) or visit our [home page](https://www.text2knowledge.de) to discuss your project.
 
